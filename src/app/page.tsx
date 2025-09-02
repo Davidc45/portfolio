@@ -7,7 +7,7 @@ export default function Home() {
        <div> {/* Landing Page Container */}
       <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 border-b border-gray-800 bg-black/95 backdrop-blur-md"> {/* Header */}
         <div className="flex items-center space-x-3">
-          <Image  src="/assets/logo.webp"  alt="David's Icon"  width={40}  height={40} />
+          <Image  src="/assets/logo.webp"  alt="Davids Icon"  width={40}  height={40} />
         </div>
         
         <nav className="flex items-center space-x-8">
@@ -35,7 +35,7 @@ export default function Home() {
       <Image src="/assets/roomrender.png" alt="Room Render" width={800} height={800} />
        
         <div className="border border-white rounded-full px-6 py-3 mb-8 hover:bg-white hover:text-black transition-all duration-300 animate-float"> {/* Greeting Bubble */}
-          <a href="#about" className="">Hello, I'm David 👋</a>
+          <a href="#about" className="">Hello, I&apos;m David 👋</a>
         </div>
       </main>
       </div>
