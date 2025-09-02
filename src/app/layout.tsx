@@ -36,6 +36,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${aldrich.variable} antialiased`}
       >
         {children}
+        <Analytics />
       </body>
     </html>
   );
