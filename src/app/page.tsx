@@ -1,9 +1,10 @@
 import Image from "next/image";
 import ProjectCard from "@/components/projectCard";
+import TechnologyCarousel from "@/components/TechnologyCarousel";
 export default function Home() {
   return (
 
-    <div className=" bg-black text-white font-aldrich">  {/* Entire website container */}  
+    <div className=" bg-black text-gray-400 font-aldrich">  {/* Entire website container */}  
        <div> {/* Landing Page Container */}
       <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 border-b border-gray-800 bg-black/95 backdrop-blur-md"> {/* Header */}
         <div className="flex items-center space-x-3">
@@ -11,10 +12,10 @@ export default function Home() {
         </div>
         
         <nav className="flex items-center space-x-8">
-          <a href="#portfolio" className="hover:text-blue-400 transition-colors">About</a>
-          <a href="#about" className="hover:text-blue-400 transition-colors">Experience</a>
-          <a href="#contact" className="hover:text-blue-400 transition-colors">Projects</a>
-          <a  href="/DavidCalderonResume.pdf" download
+          <a href="#about" className="hover:text-white transition-colors">About</a>
+          <a href="#experience" className="hover:text-white transition-colors">Experience</a>
+          <a href="#projects" className="hover:text-white transition-colors">Projects</a>
+          <a  href="/assets/DavidCalderonResume.pdf" download
            className="flex items-center space-x-2 border border-gray-600 rounded-lg px-4 py-2 hover:bg-gray-900 hover:border-gray-400 transition-all duration-300">
             <span>Resume</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -27,12 +28,11 @@ export default function Home() {
 
       <main className="flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-6 relative pt-24">  {/* Hero Section */}
       
-        <h1 className="text-5xl md:text-7xl font-bold text-center mb-8 max-w-4xl leading-tight ">  {/* Main Headline */}
-          David Calderon
-          <p className="text-lg text-gray-400">Full-stack Web Developer</p>
+        <h1 className="text-5xl font-bold text-center mb-8 w-6/12 leading-tight ">  {/* Main Headline */}
+        <span className="text-white "> Software engineer </span> developing <span className="text-white ">clean</span> & <span className="text-white ">modern</span> web applications.
         </h1>
 
-      <Image src="/assets/roomrender.png" alt="Room Render" width={800} height={800} />
+      <Image src="/assets/roomrender.png" alt="Room Render" width={1100} height={800} />
        
         <div className="border border-white rounded-full px-6 py-3 mb-8 hover:bg-white hover:text-black transition-all duration-300 animate-float"> {/* Greeting Bubble */}
           <a href="#about" className="">Hello, I&apos;m David 👋</a>
@@ -41,36 +41,58 @@ export default function Home() {
       </div>
 
        {/* About Me Container */}
-       <div className="min-h-screen flex flex-row items-center justify-between mx-32">
+       <div className=" flex flex-row items-center justify-between mx-32 mt-20">
        
         <div>
         <Image src="/assets/headshot.webp" alt="Room Render" width={900} height={400} className="rounded-xl" />
         </div>
         <div className="flex flex-col items-center  mx-10  h-[600px]">
         <div className="flex flex-col items-center mx-10 w-10/12 ">
-          <h1 className="bg-gray-800 py-2 px-3 rounded-full ">About Me</h1>
+          <h1 className="bg-gray-800 py-2 px-3 rounded-full text-white">About Me</h1>
+          <h1 className="text-4xl font-bold mt-4">Curiosity turned <span className="text-white">Analytical.</span></h1>
           <p className="leading-loose mt-10 w-10/12 ">
-            Curiosity turned to passion in developing scalable, responsive, and visually polished web applications. From crafting sleek websites to managing the behind the scenes of
+            Current Senior at California State University of Fullerton driven by developing scalable, responsive, and visually polished web applications. From crafting sleek websites to managing the behind the scenes of
             full-stack application features, I bring a unique blend of technical expertise and creative vision to every project.
             </p>
             <div className="grid grid-cols-2 gap-x-10 gap-y-20 mt-10 w-10/12  ">
-              <h1 className="text-lg font-bold">Projects Completed: <p className="mt-6 text-3xl">5+</p> </h1>
-              <h1 className="text-lg font-bold">Years of Experience: <p className="mt-6 text-3xl"> 2+</p> </h1>
-              <h1 className="text-lg font-bold">Technologies Mastered:<p className="mt-6 text-3xl"> 12+</p></h1>
-              <h1 className="text-lg font-bold">Users Impacted:<p className="mt-6 text-3xl"> 200+</p></h1>
+              <h1 className="text-lg font-bold">Projects Completed: <p className="mt-6 text-3xl text-white">5+</p> </h1>
+              <h1 className="text-lg font-bold">Years of Experience: <p className="mt-6 text-3xl text-white"> 2+</p> </h1>
+              <h1 className="text-lg font-bold">Technologies Mastered:<p className="mt-6 text-3xl text-white"> 12+</p></h1>
+              <h1 className="text-lg font-bold">Users Impacted:<p className="mt-6 text-3xl text-white"> 200+</p></h1>
             </div>
             </div>
-       </div>
-       </div>
+                </div> 
+        </div>
+         {/* Technology Carousel */}
+     <div className="w-full mt-20 px-32">
+          <TechnologyCarousel 
+            technologies={[
+              { name: "HTML", color: "#e34f26", logo: "/technology/HTML.webp", textContrast: "#ffffff"},
+              { name: "CSS", color: "#264de4", logo: "/technology/CSS3_logo.svg.webp", textContrast: "#ffffff"},
+              { name: "JavaScript", color: "#ffd133", logo: "/technology/JavaScript.webp", textContrast: "#ffffff"},
+              { name: "TypeScript", color: "#007acc", logo: "/technology/typescript.svg", textContrast: "#ffffff"},
+              { name: "React", color: "#0081a3", logo: "/technology/react.svg", textContrast: "#ffffff"},
+              { name: "Next.js", color: "#ffffff", logo: "/technology/Next.png", textContrast: "#ffffff"},
+              { name: "Node.js", color: "#339933", logo: "/technology/nodejs.svg", textContrast: "#ffffff"},
+              { name: "PostgreSQL", color: "#31708F", logo: "/technology/PostgreSQL.png", textContrast: "#ffffff"},
+              { name: "Prisma", color: "#ffffff", logo: "/technology/Prisma.svg", textContrast: "#ffffff"},
+              { name: "Firebase", color: "#DD2C00", logo: "/technology/Firebase.png", textContrast: "#ffffff"},
+              { name: "Docker", color: "#1D63ED", logo: "/technology/docker.png", textContrast: "#ffffff"},
+              { name: "Tailwind CSS", color: "#06B6D4", logo: "/technology/tailwind.svg", textContrast: "#ffffff"},
+              { name: "Docker", color: "#1D63ED", logo: "/technology/docker.png", textContrast: "#ffffff"},
+              { name: "Express", color: "#ffffff", logo: "/technology/expressjs.svg", textContrast: "#ffffff"}
+            ]} 
+          />
+          </div>
 
-       {/* Experience Container */}
+        {/* Experience Container */}
        
        <section className="w-full my-24">
          <div className="mx-auto w-10/12">
            <div className="mb-12">
-             <span className="inline-block rounded-full bg-gray-800/70 px-3 py-1 text-xs tracking-wide">Career</span>
+             <span className="inline-block rounded-full bg-gray-800/70 px-3 py-1 text-xs tracking-wide text-white">Career</span>
              <h2 className="mt-4 text-4xl font-bold">
-               <span className="text-gray-300">And This Is</span> <span className="text-white">My Career</span>
+               <span className="text-gray-300">And This Is My</span> <span className="text-white">Experience</span>
              </h2>
            </div>
 
@@ -83,10 +105,10 @@ export default function Home() {
              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-10 border-b border-gray-800">
                <div className="flex items-center justify-between pr-8">
                  <div className="flex items-center gap-2">
-                 <Image src="/assets/laptop.svg" alt="Room Render" width={30} height={30} className="rounded-xl bg-white" />
+                 <Image src="/assets/laptop.svg" alt="Room Render" width={35} height={30} className="rounded-xl bg-white" />
 
-                   <h3 className="text-lg font-semibold">Freelance - Web Development</h3>
-                   <p className="mt-1 text-sm text-gray-400">2019 - 2020</p>
+                   <h3 className="text-lg font-semibold text-white">Freelance - Web Development</h3>
+                   <p className="mt-1 text-sm text-gray-400">Jun 2022 - Sep 2023</p>
                  </div>
                  <span className="hidden mt-2 h-2 w-2 rounded-full bg-white translate-x-1/2" />
                </div>
@@ -102,8 +124,8 @@ export default function Home() {
                <div className="flex items-center justify-between pr-8">
                  <div className="flex items-center gap-2">
                  <Image src="/assets/altitud.svg" alt="Room Render" width={35} height={30} className="rounded-xl" />
-                   <h3 className="text-lg font-semibold">Altitud - Software Engineer</h3>
-                   <p className="mt-1 text-sm text-gray-400">2020 - 2022</p>
+                   <h3 className="text-lg font-semibold text-white">Altitud - Software Engineer</h3>
+                   <p className="mt-1 text-sm text-gray-400">Sep 2023 - Jun 2024</p>
                  </div>
                  <span className="hidden mt-2 h-2 w-2 rounded-full bg-white translate-x-1/2" />
                </div>
@@ -113,14 +135,31 @@ export default function Home() {
                  </p>
                </div>
              </div>
-
-             {/* Item 3 */}
+              
+              {/* Item 3 */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-10 border-b border-gray-800">
+               <div className="flex items-center justify-between pr-8">
+                 <div className="flex items-center gap-2">
+                 <Image src="/project/usda.svg" alt="Room Render" width={40} height={30} className="rounded-xl" />
+                   <h3 className="text-lg font-semibold text-white">Digital Agricultural Fellowship - Data Analyst</h3>
+                   <p className="mt-1 text-sm text-gray-400">Jun 2024 - Aug 2024</p>
+                 </div>
+                 <span className="hidden mt-2 h-2 w-2 rounded-full bg-white translate-x-1/2" />
+               </div>
+               <div className="pl-0 md:pl-8 text-gray-300 leading-relaxed">
+                 <p>
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor, sapien a congue luctus, ex nisl posuere mi, sed scelerisque magna magna vel mi. Suspendisse potenti. Curabitur at elit a elit placerat tempus.
+                 </p>
+               </div>
+             </div>
+           
+             {/* Item 4 */}
              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-10">
                <div className="flex items-center justify-between pr-8">
                  <div className="flex items-center gap-2">
                  <Image src="/assets/logo.svg" alt="Room Render" width={40} height={30} className="rounded-xl" />
-                   <h3 className="text-lg font-semibold">Green Portfolio - Web Developer</h3>
-                   <p className="mt-1 text-sm text-gray-400">2022 - Now</p>
+                   <h3 className="text-lg font-semibold text-white">Green Portfolio - Web Developer</h3>
+                   <p className="mt-1 text-sm text-gray-400">Sep 2024 - May 2025</p>
                  </div>
                  <span className="hidden mt-2 h-2 w-2 rounded-full bg-white translate-x-1/2" />
                </div>
@@ -137,7 +176,7 @@ export default function Home() {
        {/* Projects */}
        
        <div className="flex flex-col items-center mt-16 w-full min-h-screen">
-         <h2 className="text-3xl font-bold mb-8">Featured Projects</h2>
+         <h2 className="text-3xl font-bold mb-8 ">My Featured <span className="text-white">Projects</span> </h2>
          <div className="w-7/12 grid grid-cols-2">
 
       <ProjectCard
@@ -184,8 +223,24 @@ export default function Home() {
     panelHeight: "h-7/12"
   }} className="m-10"
 />
+<ProjectCard
+        project={{ title: "Altitud.io", description: " for a startup company that provides web services to businesses.", imageUrl: "/project/green.png",
+    technologies: 
+    [
+      { name: "Next.js", color: "#ffffff", logo: "/technology/Next.png", textContrast: "#000000"},
+      { name: "React", color: "#0081a3", logo: "/technology/react.svg", textContrast: "#ffffff"},
+      { name: "TypeScript",color: "#007acc", logo: "/technology/typescript.svg", textContrast: "#ffffff"},
+      { name: "SQL", color: "#0F80CC", logo: "/technology/sql.png", textContrast: "#ffffff"},
+      { name: "Docker", color: "#1D63ED", logo: "/technology/docker.png", textContrast: "#ffffff"}
+
+    ],
+    liveUrl: "https://green-portfolio-website.vercel.app/",
+    panelHeight: "h-7/12"
+  }} className="m-10"
+/>
       </div>
-    </div>
+
+        </div>
     </div>
   );
 }

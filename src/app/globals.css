@@ -38,3 +38,42 @@ body {
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
+
+/* Hide scrollbar for webkit browsers */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* Custom Slick Carousel Styles */
+.slick-slider {
+  margin: 0 !important;
+}
+
+.slick-list {
+  overflow: visible !important;
+}
+
+.slick-track {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.slick-slide {
+  height: auto !important;
+}
+
+.slick-slide > div {
+  height: 100% !important;
+}
+
+/* Hide any remaining Slick elements */
+.slick-dots,
+.slick-arrow {
+  display: none !important;
+}
