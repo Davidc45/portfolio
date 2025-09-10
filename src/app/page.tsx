@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ProjectCard from "@/components/projectCard";
 import TechnologyCarousel from "@/components/TechnologyCarousel";
+import ChatBot from "@/components/ChatBot";
 export default function Home() {
   return (
 
@@ -241,6 +242,9 @@ export default function Home() {
       </div>
 
         </div>
+        
+        {/* ChatBot Component */}
+        <ChatBot />
     </div>
   );
 }
