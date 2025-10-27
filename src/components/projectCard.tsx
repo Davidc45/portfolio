@@ -67,9 +67,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '' }) =>
                 <Image
                   src={tech.logo}
                   alt={`${tech.name} logo`}
-                  width={16}
-                  height={16}
-                  className="rounded-sm"
+                  width={20}
+                  height={20}
+                  className="rounded-sm object-contain"
+                  onError={(e) => {
+                    console.error(`Failed to load tech logo: ${tech.logo} for technology: ${tech.name}`);
+                    console.error('Image element:', e.currentTarget);
+                    e.currentTarget.style.display = 'none';
+                  }}
+                  onLoad={() => {
+                    console.log(`Successfully loaded: ${tech.logo} for ${tech.name}`);
+                  }}
+                  unoptimized={tech.logo.includes('.webp')}
                 />
               )}
                   {/* Technology Name in Colored Bubble */}

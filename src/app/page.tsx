@@ -9,7 +9,12 @@ export default function Home() {
        <div> {/* Landing Page Container */}
       <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 border-b border-gray-800 bg-black/95 backdrop-blur-md"> {/* Header */}
         <div className="flex items-center space-x-3">
-          <Image  src="/assets/logo.webp"  alt="Davids Icon"  width={40}  height={40} />
+          <Image  
+            src="/assets/logo.webp"  
+            alt="Davids Icon"  
+            width={40}  
+            height={40}
+          />
         </div>
         
         <nav className="flex items-center space-x-8">
@@ -45,7 +50,13 @@ export default function Home() {
        <div className=" flex flex-row items-center justify-between mx-32 mt-20">
        
         <div>
-        <Image src="/assets/headshot.webp" alt="Room Render" width={900} height={400} className="rounded-xl" />
+        <Image 
+          src="/assets/headshot.webp" 
+          alt="Room Render" 
+          width={900} 
+          height={400} 
+          className="rounded-xl"
+        />
         </div>
         <div className="flex flex-col items-center  mx-10  h-[600px]">
         <div className="flex flex-col items-center mx-10 w-10/12 ">
@@ -69,13 +80,13 @@ export default function Home() {
           <TechnologyCarousel 
             technologies={[
               { name: "HTML", color: "#e34f26", logo: "/technology/HTML.webp", textContrast: "#ffffff"},
-              { name: "CSS", color: "#264de4", logo: "/technology/CSS3_logo.svg.webp", textContrast: "#ffffff"},
-              { name: "JavaScript", color: "#ffd133", logo: "/technology/JavaScript.webp", textContrast: "#ffffff"},
+              { name: "CSS", color: "#264de4", logo: "/technology/CSS3_logo.webp", textContrast: "#ffffff"},
+              { name: "JavaScript", color: "#ffd133", logo: "/technology/JAVASCRIPT.webp", textContrast: "#ffffff"},
               { name: "TypeScript", color: "#007acc", logo: "/technology/typescript.svg", textContrast: "#ffffff"},
               { name: "React", color: "#0081a3", logo: "/technology/react.svg", textContrast: "#ffffff"},
               { name: "Next.js", color: "#ffffff", logo: "/technology/Next.png", textContrast: "#ffffff"},
               { name: "Node.js", color: "#339933", logo: "/technology/nodejs.svg", textContrast: "#ffffff"},
-              { name: "PostgreSQL", color: "#31708F", logo: "/technology/PostgreSQL.png", textContrast: "#ffffff"},
+              { name: "PostgreSQL", color: "#31708F", logo: "/technology/postgresql.png", textContrast: "#ffffff"},
               { name: "Prisma", color: "#ffffff", logo: "/technology/Prisma.svg", textContrast: "#ffffff"},
               { name: "Firebase", color: "#DD2C00", logo: "/technology/Firebase.png", textContrast: "#ffffff"},
               { name: "Docker", color: "#1D63ED", logo: "/technology/docker.png", textContrast: "#ffffff"},
@@ -185,8 +196,8 @@ export default function Home() {
     technologies: 
     [
       { name: "HTML", color: "#e34f26", logo: "/technology/HTML.webp", textContrast: "#ffffff"},
-      { name: "CSS", color: "#264de4", logo: "/technology/CSS3_logo.svg.webp", textContrast: "#ffffff"},
-      { name: "JavaScript",color: "#ffd133", logo: "/technology/JavaScript.webp", textContrast: "#ffffff"},
+      { name: "CSS", color: "#264de4", logo: "/technology/CSS3_logo.webp", textContrast: "#ffffff"},
+      { name: "JavaScript",color: "#ffd133", logo: "/technology/JAVASCRIPT.webp", textContrast: "#ffffff"},
       { name: "Firebase", color: "#DD2C00", logo: "/technology/Firebase.png", textContrast: "#ffffff"}
     ],
     liveUrl: "https://stephs-puppies.vercel.app/"
@@ -200,7 +211,7 @@ export default function Home() {
       { name: "Next.js", color: "#ffffff", logo: "/technology/Next.png", textContrast: "#000000"},
       { name: "React", color: "#0081a3", logo: "/technology/react.svg", textContrast: "#ffffff"},
       { name: "TypeScript",color: "#007acc", logo: "/technology/typescript.svg", textContrast: "#ffffff"},
-      { name: "PostgreSQL", color: "#31708F", logo: "/technology/PostgreSQL.png", textContrast: "#ffffff"},
+      { name: "PostgreSQL", color: "#31708F", logo: "/technology/postgresql.png", textContrast: "#ffffff"},
       { name: "Prisma", color: "#ffffff", logo: "/technology/Prisma.svg", textContrast: "#000000"}
 
     ],

@@ -132,6 +132,11 @@ export default function TechnologyCarousel({ technologies }: TechnologyCarouselP
                       alt={tech.name}
                       fill
                       className="object-contain"
+                      onError={(e) => {
+                        console.error(`Failed to load image: ${tech.logo}`);
+                        e.currentTarget.style.display = 'none';
+                      }}
+                      priority={index < 6} // Prioritize first 6 images
                     />
                   </div>
                   <span 
