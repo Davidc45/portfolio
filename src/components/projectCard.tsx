@@ -35,10 +35,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '' }) =>
       href={project.liveUrl} 
       target="_blank" 
       rel="noopener noreferrer"
-      className={`group relative overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-500 hover:shadow-xl dark:bg-gray-800 block w-10/12 ${className}`}
+      className={`group relative overflow-hidden rounded-lg bg-white shadow-lg transition-all duration-500 hover:shadow-xl dark:bg-gray-800 block w-full ${className}`}
     >
       {/* Project Image Container */}
-      <div className="relative h-64 w-full overflow-hidden">
+      <div className="relative h-48 sm:h-56 md:h-64 w-full overflow-hidden">
         {/* Monotone Image (resting state) */}
         <Image
           src={project.imageUrl}
@@ -53,13 +53,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '' }) =>
       <div className={`absolute bottom-0 left-0 right-0 ${project.panelHeight || 'h-5/12'} 
       bg-gradient-to-t from-black/90 via-black/70 to-transparent p-3 transform translate-y-full transition-transform duration-500 group-hover:translate-y-0`}>
         {/* Title */}
-        <h3 className="text-sm font-bold text-white mb-1 truncate">
+        <h3 className="text-xs sm:text-sm font-bold text-white mb-1 truncate">
           {project.title}
         </h3>
-        <p className="text-sm text-gray-300 py-1">{project.description}</p>
+        <p className="text-xs sm:text-sm text-gray-300 py-1">{project.description}</p>
 
         {/* Technologies */}
-        <div className="flex flex-wrap gap-2 gap-x-4">
+        <div className="flex flex-wrap gap-1 sm:gap-2 gap-x-2 sm:gap-x-4">
           {project.technologies.map((tech, index) => (
             <div key={index} className="flex items-center gap-1">
               {/* Technology Logo Badge */}
@@ -67,9 +67,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '' }) =>
                 <Image
                   src={tech.logo}
                   alt={`${tech.name} logo`}
-                  width={20}
-                  height={20}
-                  className="rounded-sm object-contain"
+                  width={16}
+                  height={16}
+                  className="rounded-sm object-contain sm:w-5 sm:h-5"
                   onError={(e) => {
                     console.error(`Failed to load tech logo: ${tech.logo} for technology: ${tech.name}`);
                     console.error('Image element:', e.currentTarget);
@@ -83,7 +83,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '' }) =>
               )}
                   {/* Technology Name in Colored Bubble */}
                <span
-                 className="rounded-full px-2 py-0.5 text-xs font-medium backdrop-blur-sm"
+                 className="rounded-full px-1.5 sm:px-2 py-0.5 text-xs font-medium backdrop-blur-sm"
                  style={{ 
                    backgroundColor: tech.color,
                    color: tech.textContrast

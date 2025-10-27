@@ -7,76 +7,114 @@ export default function Home() {
 
     <div className=" bg-black text-gray-400 font-aldrich">  {/* Entire website container */}  
        <div> {/* Landing Page Container */}
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 border-b border-gray-800 bg-black/95 backdrop-blur-md"> {/* Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 py-4 border-b border-gray-800 bg-black/95 backdrop-blur-md"> {/* Header */}
         <div className="flex items-center space-x-3">
           <Image  
             src="/assets/logo.webp"  
             alt="Davids Icon"  
-            width={40}  
-            height={40}
+            width={48}
+            height={48}
+            className="sm:w-10 sm:h-10"
           />
         </div>
         
-        <nav className="flex items-center space-x-8">
-          <a href="#about" className="hover:text-white transition-colors">About</a>
-          <a href="#experience" className="hover:text-white transition-colors">Experience</a>
-          <a href="#projects" className="hover:text-white transition-colors">Projects</a>
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          <a href="#about" className="hover:text-white transition-colors text-sm lg:text-base">About</a>
+          <a href="#experience" className="hover:text-white transition-colors text-sm lg:text-base">Experience</a>
+          <a href="#projects" className="hover:text-white transition-colors text-sm lg:text-base">Projects</a>
           <a  href="/assets/DavidCalderonResume.pdf" download
-           className="flex items-center space-x-2 border border-gray-600 rounded-lg px-4 py-2 hover:bg-gray-900 hover:border-gray-400 transition-all duration-300">
-            <span>Resume</span>
+           className="flex items-center space-x-2 border border-gray-600 rounded-lg px-3 py-2 hover:bg-gray-900 hover:border-gray-400 transition-all duration-300 text-sm lg:text-base">
+            <span className="hidden sm:inline">Resume</span>
+            <span className="sm:hidden">CV</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
           </a>
-          
         </nav>
+
+        {/* Mobile Menu Button */}
+        <button className="md:hidden p-2 text-gray-400 hover:text-white transition-colors">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </header>
 
-      <main className="flex flex-col items-center justify-center min-h-[calc(100vh-80px)] px-6 relative pt-24">  {/* Hero Section */}
+      <main className="flex flex-col items-center justify-center min-h-[calc(100vh-60px)] px-4 sm:px-6 relative pt-20 sm:pt-24">  {/* Hero Section */}
       
-        <h1 className="text-5xl font-bold text-center mb-8 w-6/12 leading-tight ">  {/* Main Headline */}
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center mb-6 sm:mb-8 w-full sm:w-11/12 md:w-10/12 lg:w-8/12 xl:w-6/12 leading-tight px-2">  {/* Main Headline */}
         <span className="text-white "> Software engineer </span> developing <span className="text-white ">clean</span> & <span className="text-white ">modern</span> web applications.
         </h1>
 
-      <Image src="/assets/roomrender.png" alt="Room Render" width={1100} height={800} />
+      <div className="w-full max-w-4xl px-4">
+        <Image 
+          src="/assets/roomrender.png" 
+          alt="Room Render" 
+          width={1100} 
+          height={800}
+          className="w-full h-auto"
+          priority
+        />
+      </div>
        
-        <div className="border border-white rounded-full px-6 py-3 mb-8 hover:bg-white hover:text-black transition-all duration-300 animate-float"> {/* Greeting Bubble */}
-          <a href="#about" className="">Hello, I&apos;m David 👋</a>
-        </div>
+      <div className="border border-white rounded-full px-4 sm:px-6 py-2 sm:py-3 mt-32 sm:mb-8 hover:bg-white hover:text-black transition-all duration-300 animate-float text-sm sm:text-base">
+  <a
+    href="https://mail.google.com/mail/?view=cm&fs=1&to=davidcalderon4000@gmail.com&su=Hello%20from%20your%20portfolio&body=Hi%20David,%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect!"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="cursor-pointer"
+  >
+    Hello, I&apos;m David 👋
+  </a>
+</div>
+
       </main>
       </div>
 
        {/* About Me Container */}
-       <div className=" flex flex-row items-center justify-between mx-32 mt-20">
+       <div id="about" className="flex flex-col lg:flex-row items-center justify-between mx-4 sm:mx-8 md:mx-16 lg:mx-32 mt-16 sm:mt-20 gap-8 lg:gap-12">
        
-        <div>
+        <div className="w-full lg:w-1/2 order-2 lg:order-1 flex justify-center items-center">
         <Image 
           src="/assets/headshot.webp" 
-          alt="Room Render" 
+          alt="David's Headshot" 
           width={900} 
           height={400} 
-          className="rounded-xl"
+          className="rounded-xl w-9/12 h-auto"
         />
         </div>
-        <div className="flex flex-col items-center  mx-10  h-[600px]">
-        <div className="flex flex-col items-center mx-10 w-10/12 ">
-          <h1 className="bg-gray-800 py-2 px-3 rounded-full text-white">About Me</h1>
-          <h1 className="text-4xl font-bold mt-4">Curiosity turned <span className="text-white">Analytical.</span></h1>
-          <p className="leading-loose mt-10 w-10/12 ">
+        <div className="flex flex-col items-center lg:items-start w-full lg:w-1/2 order-1 lg:order-2">
+        <div className="flex flex-col items-center lg:items-start w-full">
+          <h1 className="bg-gray-800 py-2 px-3 rounded-full text-white text-sm sm:text-base">About Me</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mt-4 text-center lg:text-left">Curiosity turned <span className="text-white">Analytical.</span></h1>
+          <p className="leading-relaxed sm:leading-loose mt-6 sm:mt-10 w-full text-sm sm:text-base text-center lg:text-left">
             Current Senior at California State University of Fullerton driven by developing scalable, responsive, and visually polished web applications. From crafting sleek websites to managing the behind the scenes of
             full-stack application features, I bring a unique blend of technical expertise and creative vision to every project.
             </p>
-            <div className="grid grid-cols-2 gap-x-10 gap-y-20 mt-10 w-10/12  ">
-              <h1 className="text-lg font-bold">Projects Completed: <p className="mt-6 text-3xl text-white">5+</p> </h1>
-              <h1 className="text-lg font-bold">Years of Experience: <p className="mt-6 text-3xl text-white"> 2+</p> </h1>
-              <h1 className="text-lg font-bold">Technologies Mastered:<p className="mt-6 text-3xl text-white"> 12+</p></h1>
-              <h1 className="text-lg font-bold">Users Impacted:<p className="mt-6 text-3xl text-white"> 200+</p></h1>
+            <div className="grid grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-8 sm:gap-y-12 mt-8 sm:mt-10 w-full">
+              <div className="text-center lg:text-left">
+                <h1 className="text-sm sm:text-base lg:text-lg font-bold">Projects Completed:</h1>
+                <p className="mt-2 sm:mt-4 text-2xl sm:text-3xl text-white">5+</p>
+              </div>
+              <div className="text-center lg:text-left">
+                <h1 className="text-sm sm:text-base lg:text-lg font-bold">Years of Experience:</h1>
+                <p className="mt-2 sm:mt-4 text-2xl sm:text-3xl text-white">2+</p>
+              </div>
+              <div className="text-center lg:text-left">
+                <h1 className="text-sm sm:text-base lg:text-lg font-bold">Technologies Mastered:</h1>
+                <p className="mt-2 sm:mt-4 text-2xl sm:text-3xl text-white">12+</p>
+              </div>
+              <div className="text-center lg:text-left">
+                <h1 className="text-sm sm:text-base lg:text-lg font-bold">Users Impacted:</h1>
+                <p className="mt-2 sm:mt-4 text-2xl sm:text-3xl text-white">2,000+</p>
+              </div>
             </div>
             </div>
                 </div> 
         </div>
          {/* Technology Carousel */}
-     <div className="w-full mt-20 px-32">
+     <div className="w-full mt-16 sm:mt-20 px-4 sm:px-8 md:px-16 lg:px-32">
           <TechnologyCarousel 
             technologies={[
               { name: "HTML", color: "#e34f26", logo: "/technology/HTML.webp", textContrast: "#ffffff"},
@@ -99,85 +137,97 @@ export default function Home() {
 
         {/* Experience Container */}
        
-       <section className="w-full my-24">
-         <div className="mx-auto w-10/12">
-           <div className="mb-12">
+       <section id="experience" className="w-full my-16 sm:my-20 lg:my-24">
+         <div className="mx-auto w-11/12 sm:w-10/12">
+           <div className="flex flex-col items-center mb-8 sm:mb-12">
              <span className="inline-block rounded-full bg-gray-800/70 px-3 py-1 text-xs tracking-wide text-white">Career</span>
-             <h2 className="mt-4 text-4xl font-bold">
-               <span className="text-gray-300">And This Is My</span> <span className="text-white">Experience</span>
+             <h2 className="mt-4 text-2xl sm:text-3xl lg:text-4xl font-bold text-center lg:text-left">
+               <span className="text-gray-300"> <span className="hidden sm:inline">And This Is</span> My</span> <span className="text-white">Experience</span>
              </h2>
            </div>
 
            {/* Timeline */}
            <div className="relative">
-             {/* vertical line */}
-             <div className="absolute left-1/2 top-0 -translate-x-1/2 h-full w-px bg-gray-800" />
+             {/* vertical line - hidden on mobile */}
+             <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 h-full w-px bg-gray-800" />
 
              {/* Item 1 */}
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-10 border-b border-gray-800">
-               <div className="flex items-center justify-between pr-8">
-                 <div className="flex items-center gap-2">
-                 <Image src="/assets/laptop.svg" alt="Room Render" width={35} height={30} className="rounded-xl bg-white" />
-
-                   <h3 className="text-lg font-semibold text-white">Freelance - Web Development</h3>
-                   <p className="mt-1 text-sm text-gray-400">Jun 2022 - Sep 2023</p>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 py-8 sm:py-10 border-b border-gray-800">
+               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 pr-0 md:pr-8">
+                 <div className="flex items-center gap-2 sm:gap-3">
+                   <Image src="/assets/laptop.svg" alt="Freelance Work" width={28} height={24} className="rounded-xl bg-white sm:w-9 sm:h-8" />
+                   <div>
+                     <h3 className="text-base sm:text-lg font-semibold text-white">Freelance - Web Development</h3>
+                     <p className="text-xs sm:text-sm text-gray-400">Jun 2022 - Sep 2023</p>
+                   </div>
                  </div>
-                 <span className="hidden mt-2 h-2 w-2 rounded-full bg-white translate-x-1/2" />
+                 <span className="hidden md:block mt-2 h-2 w-2 rounded-full bg-white translate-x-1/2" />
                </div>
-               <div className="pl-0 md:pl-8 text-gray-300 leading-relaxed">
+               <div className="pl-0 md:pl-8 text-gray-300 leading-relaxed text-sm sm:text-base">
                  <p>
-                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer in massa sed odio volutpat mattis.
+                   Built responsive websites for local clients, emphasizing clean UI/UX and optimized performance. Managed full scale projects from client 
+                   visions to deployment, improving communication and delivery speed.
                  </p>
                </div>
              </div>
 
              {/* Item 2 */}
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-10 border-b border-gray-800">
-               <div className="flex items-center justify-between pr-8">
-                 <div className="flex items-center gap-2">
-                 <Image src="/assets/altitud.svg" alt="Room Render" width={35} height={30} className="rounded-xl" />
-                   <h3 className="text-lg font-semibold text-white">Altitud - Software Engineer</h3>
-                   <p className="mt-1 text-sm text-gray-400">Sep 2023 - Jun 2024</p>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 py-8 sm:py-10 border-b border-gray-800">
+               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 pr-0 md:pr-8">
+                 <div className="flex items-center gap-2 sm:gap-3">
+                   <Image src="/assets/altitud.svg" alt="Altitud Work" width={28} height={24} className="rounded-xl sm:w-9 sm:h-8" />
+                   <div>
+                     <h3 className="text-base sm:text-lg font-semibold text-white">Altitud - Software Engineer</h3>
+                     <p className="text-xs sm:text-sm text-gray-400">Sep 2023 - Jun 2024</p>
+                   </div>
                  </div>
-                 <span className="hidden mt-2 h-2 w-2 rounded-full bg-white translate-x-1/2" />
+                 <span className="hidden md:block mt-2 h-2 w-2 rounded-full bg-white translate-x-1/2" />
                </div>
-               <div className="pl-0 md:pl-8 text-gray-300 leading-relaxed">
+               <div className="pl-0 md:pl-8 text-gray-300 leading-relaxed text-sm sm:text-base">
                  <p>
-                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor, sapien a congue luctus, ex nisl posuere mi, sed scelerisque magna magna vel mi. Suspendisse potenti. Curabitur at elit a elit placerat tempus.
+                   A community-driven startup providing me with the privilege to offer service-free web services to local businesses.
+                   I led a team of developers through Agile sprints and built scalable UI systems with reusable components where I also initially offered
+                   back-end app functionalities.
                  </p>
                </div>
              </div>
               
               {/* Item 3 */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-10 border-b border-gray-800">
-               <div className="flex items-center justify-between pr-8">
-                 <div className="flex items-center gap-2">
-                 <Image src="/project/usda.svg" alt="Room Render" width={40} height={30} className="rounded-xl" />
-                   <h3 className="text-lg font-semibold text-white">Digital Agricultural Fellowship - Data Analyst</h3>
-                   <p className="mt-1 text-sm text-gray-400">Jun 2024 - Aug 2024</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 py-8 sm:py-10 border-b border-gray-800">
+               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 pr-0 md:pr-8">
+                 <div className="flex items-center gap-2 sm:gap-3">
+                   <Image src="/project/usda.svg" alt="USDA Fellowship" width={32} height={24} className="rounded-xl sm:w-10 sm:h-8" />
+                   <div>
+                     <h3 className="text-base sm:text-lg font-semibold text-white">Digital Agricultural Fellowship - Data Analyst</h3>
+                     <p className="text-xs sm:text-sm text-gray-400">Jun 2024 - Aug 2024</p>
+                   </div>
                  </div>
-                 <span className="hidden mt-2 h-2 w-2 rounded-full bg-white translate-x-1/2" />
+                 <span className="hidden md:block mt-2 h-2 w-2 rounded-full bg-white translate-x-1/2" />
                </div>
-               <div className="pl-0 md:pl-8 text-gray-300 leading-relaxed">
+               <div className="pl-0 md:pl-8 text-gray-300 leading-relaxed text-sm sm:text-base">
                  <p>
-                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porttitor, sapien a congue luctus, ex nisl posuere mi, sed scelerisque magna magna vel mi. Suspendisse potenti. Curabitur at elit a elit placerat tempus.
+                  Processed and visualized 30K+ satellite data entries to analyze crop growth. Built Python dashboards that delivered crucial insights for farmers
+                  and presented findings at the 2024 UCR MSRIP Symposium under mentorship of a senior scientist.
                  </p>
                </div>
              </div>
            
              {/* Item 4 */}
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-10">
-               <div className="flex items-center justify-between pr-8">
-                 <div className="flex items-center gap-2">
-                 <Image src="/assets/logo.svg" alt="Room Render" width={40} height={30} className="rounded-xl" />
-                   <h3 className="text-lg font-semibold text-white">Green Portfolio - Web Developer</h3>
-                   <p className="mt-1 text-sm text-gray-400">Sep 2024 - May 2025</p>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 py-8 sm:py-10">
+               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 pr-0 md:pr-8">
+                 <div className="flex items-center gap-2 sm:gap-3">
+                   <Image src="/assets/logo.svg" alt="Green Portfolio" width={32} height={24} className="rounded-xl sm:w-10 sm:h-8" />
+                   <div>
+                     <h3 className="text-base sm:text-lg font-semibold text-white">Green Portfolio - Web Developer</h3>
+                     <p className="text-xs sm:text-sm text-gray-400">Sep 2024 - May 2025</p>
+                   </div>
                  </div>
-                 <span className="hidden mt-2 h-2 w-2 rounded-full bg-white translate-x-1/2" />
+                 <span className="hidden md:block mt-2 h-2 w-2 rounded-full bg-white translate-x-1/2" />
                </div>
-               <div className="pl-0 md:pl-8 text-gray-300 leading-relaxed">
+               <div className="pl-0 md:pl-8 text-gray-300 leading-relaxed text-sm sm:text-base">
                  <p>
-                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus, nulla id lacinia tincidunt, eros arcu tincidunt quam, in fermentum erat dui a metus. Aliquam erat volutpat. Nunc tempus massa id justo luctus dapibus.
+                  Developed the company&apos;s main site using front-end technologies and collaborated with a team to deliver a seamless experience for 2,000+ users.
+                  I gained experience in web optimization such as reducing bundle size and improving load times for bigger client bases. 
                  </p>
                </div>
              </div>
@@ -187,9 +237,9 @@ export default function Home() {
 
        {/* Projects */}
        
-       <div className="flex flex-col items-center mt-16 w-full min-h-screen">
-         <h2 className="text-3xl font-bold mb-8 ">My Featured <span className="text-white">Projects</span> </h2>
-         <div className="w-7/12 grid grid-cols-2">
+       <div id="projects" className="flex flex-col items-center mt-16 w-full min-h-screen px-4 sm:px-8">
+         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 text-center">My Featured <span className="text-white">Projects</span> </h2>
+         <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
 
       <ProjectCard
         project={{ title: "Steph's Puppies", description: "A front-end project helping adorable puppies find their new homes.", imageUrl: "/project/steph.jpg",
@@ -201,7 +251,7 @@ export default function Home() {
       { name: "Firebase", color: "#DD2C00", logo: "/technology/Firebase.png", textContrast: "#ffffff"}
     ],
     liveUrl: "https://stephs-puppies.vercel.app/"
-  }} className="m-10"
+  }} className="w-full"
 />
 
       <ProjectCard
@@ -217,7 +267,7 @@ export default function Home() {
     ],
     liveUrl: "https://calderonbulldogs.com",
     panelHeight: "h-7/12"
-  }} className="m-10 h-64"
+  }} className="w-full"
 />
           
       <ProjectCard
@@ -233,10 +283,10 @@ export default function Home() {
     ],
     liveUrl: "https://green-portfolio-website.vercel.app/",
     panelHeight: "h-7/12"
-  }} className="m-10"
+  }} className="w-full"
 />
 <ProjectCard
-        project={{ title: "Altitud.io", description: " for a startup company that provides web services to businesses.", imageUrl: "/project/green.png",
+        project={{ title: "Altitud", description: "For a startup company that provides web services to businesses.", imageUrl: "/assets/altitud.svg",
     technologies: 
     [
       { name: "Next.js", color: "#ffffff", logo: "/technology/Next.png", textContrast: "#000000"},
@@ -246,9 +296,9 @@ export default function Home() {
       { name: "Docker", color: "#1D63ED", logo: "/technology/docker.png", textContrast: "#ffffff"}
 
     ],
-    liveUrl: "https://green-portfolio-website.vercel.app/",
+    liveUrl: "https://altitud.io",
     panelHeight: "h-7/12"
-  }} className="m-10"
+  }} className="w-full"
 />
       </div>
 

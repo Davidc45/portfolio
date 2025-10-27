@@ -97,19 +97,19 @@ export default function TechnologyCarousel({ technologies }: TechnologyCarouselP
 
   return (
     <div className="w-full">
-      <h3 className="text-xl font-semibold mb-6 text-center">My Toolkit</h3>
+      <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-center">My Toolkit</h3>
       <div className="max-w-4xl mx-auto relative overflow-hidden">
         {/* Left fade gradient */}
-        <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 w-8 sm:w-12 md:w-20 h-full bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none" />
         
         {/* Right fade gradient */}
-        <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 w-8 sm:w-12 md:w-20 h-full bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none" />
         
         {/* Simple auto-scrolling carousel */}
-        <div className="relative z-0 px-4">
+        <div className="relative z-0 px-2 sm:px-4">
           <div 
             ref={carouselRef}
-            className="flex gap-4 overflow-x-auto scrollbar-hide select-none"
+            className="flex gap-2 sm:gap-4 overflow-x-auto scrollbar-hide select-none"
             style={{ 
               scrollbarWidth: 'none', 
               msOverflowStyle: 'none',
@@ -120,13 +120,13 @@ export default function TechnologyCarousel({ technologies }: TechnologyCarouselP
             {duplicatedTechnologies.map((tech, index) => (
               <div key={index} className="flex-shrink-0">
                 <div
-                  className="flex flex-col items-center p-4 rounded-lg border border-gray-700 bg-gray-800/50 transition-colors min-w-[120px]"
+                  className="flex flex-col items-center p-2 sm:p-3 md:p-4 rounded-lg border border-gray-700 bg-gray-800/50 transition-colors min-w-[80px] sm:min-w-[100px] md:min-w-[120px]"
                   style={{ 
                     backgroundColor: `${tech.color}20`,
                     borderColor: tech.color 
                   }}
                 >
-                  <div className="w-12 h-12 mb-3 relative">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mb-2 sm:mb-3 relative">
                     <Image
                       src={tech.logo}
                       alt={tech.name}
@@ -140,7 +140,7 @@ export default function TechnologyCarousel({ technologies }: TechnologyCarouselP
                     />
                   </div>
                   <span 
-                    className="text-sm font-medium text-center"
+                    className="text-xs sm:text-sm font-medium text-center"
                     style={{ color: tech.textContrast }}
                   >
                     {tech.name}
