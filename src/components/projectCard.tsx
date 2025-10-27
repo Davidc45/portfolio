@@ -45,12 +45,57 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, className = '' }) =>
           alt={project.title}
           fill
           className="object-cover transition-all duration-500 group-hover:grayscale-0 grayscale group-hover:scale-110"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
 
-      {/* Sliding Description Panel */}
-      <div className={`absolute bottom-0 left-0 right-0 ${project.panelHeight || 'h-5/12'} 
+      {/* Mobile/Tablet: Always visible content under image */}
+      <div className="md:hidden p-3 bg-gray-900">
+        {/* Title */}
+        <h3 className="text-sm font-bold text-white mb-2">
+          {project.title}
+        </h3>
+        <p className="text-sm text-gray-300 mb-3">{project.description}</p>
+
+        {/* Technologies */}
+        <div className="flex flex-wrap gap-1 gap-x-2">
+          {project.technologies.map((tech, index) => (
+            <div key={index} className="flex items-center gap-1">
+              {/* Technology Logo Badge */}
+              {tech.logo && (
+                <Image
+                  src={tech.logo}
+                  alt={`${tech.name} logo`}
+                  width={16}
+                  height={16}
+                  className="rounded-sm object-contain"
+                  onError={(e) => {
+                    console.error(`Failed to load tech logo: ${tech.logo} for technology: ${tech.name}`);
+                    console.error('Image element:', e.currentTarget);
+                    e.currentTarget.style.display = 'none';
+                  }}
+                  onLoad={() => {
+                    console.log(`Successfully loaded: ${tech.logo} for ${tech.name}`);
+                  }}
+                  unoptimized={tech.logo.includes('.webp')}
+                />
+              )}
+              {/* Technology Name in Colored Bubble */}
+              <span
+                className="rounded-full px-1.5 py-0.5 text-xs font-medium backdrop-blur-sm"
+                style={{ 
+                  backgroundColor: tech.color,
+                  color: tech.textContrast
+                }}
+              >
+                {tech.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop: Sliding Description Panel (hover only) */}
+      <div className={`hidden md:block absolute bottom-0 left-0 right-0 ${project.panelHeight || 'h-5/12'} 
       bg-gradient-to-t from-black/90 via-black/70 to-transparent p-3 transform translate-y-full transition-transform duration-500 group-hover:translate-y-0`}>
         {/* Title */}
         <h3 className="text-xs sm:text-sm font-bold text-white mb-1 truncate">

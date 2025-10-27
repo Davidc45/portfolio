@@ -5,7 +5,7 @@ import ChatBot from "@/components/ChatBot";
 export default function Home() {
   return (
 
-    <div className=" bg-black text-gray-400 font-aldrich">  {/* Entire website container */}  
+    <div className=" bg-black text-gray-400 font-aldrich p-3">  {/* Entire website container */}  
        <div> {/* Landing Page Container */}
       <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 py-4 border-b border-gray-800 bg-black/95 backdrop-blur-md"> {/* Header */}
         <div className="flex items-center space-x-3">
@@ -14,7 +14,7 @@ export default function Home() {
             alt="Davids Icon"  
             width={48}
             height={48}
-            className="sm:w-10 sm:h-10"
+            className="sm:w-14"
           />
         </div>
         
@@ -81,7 +81,7 @@ export default function Home() {
           alt="David's Headshot" 
           width={900} 
           height={400} 
-          className="rounded-xl w-9/12 h-auto"
+          className="rounded-xl w-8/12 sm:w-6/12 h-auto"
         />
         </div>
         <div className="flex flex-col items-center lg:items-start w-full lg:w-1/2 order-1 lg:order-2">
@@ -237,9 +237,9 @@ export default function Home() {
 
        {/* Projects */}
        
-       <div id="projects" className="flex flex-col items-center mt-16 w-full min-h-screen px-4 sm:px-8">
+       <div id="projects" className="flex flex-col items-center mt-16 w-full min-h-screen px-4 sm:px-8 ">
          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 text-center">My Featured <span className="text-white">Projects</span> </h2>
-         <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
+         <div className="w-9/12 sm:w-10/12  max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
 
       <ProjectCard
         project={{ title: "Steph's Puppies", description: "A front-end project helping adorable puppies find their new homes.", imageUrl: "/project/steph.jpg",
