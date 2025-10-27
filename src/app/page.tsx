@@ -119,7 +119,7 @@ export default function Home() {
 
       <main className="flex flex-col items-center justify-center min-h-[calc(100vh-60px)] px-4 sm:px-6 relative pt-20 sm:pt-24">  {/* Hero Section */}
       
-        <h1 className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold text-center mb-6 sm:mb-8 w-full sm:w-11/12 md:w-10/12 xl:w-7/12 leading-tight px-2">  {/* Main Headline */}
+        <h1 className="text-2xl sm:text-3xl md:text-4xl  font-bold text-center mb-6 sm:mb-8 w-full sm:w-11/12 md:w-10/12 xl:w-7/12 leading-tight px-2">  {/* Main Headline */}
         <span className="text-white  "> Software engineer </span> developing <span className="text-white ">clean</span> & <span className="text-white ">modern</span> web applications.
         </h1>
 
@@ -129,7 +129,7 @@ export default function Home() {
           alt="Room Render" 
           width={300} 
           height={800}
-          className="w-full sm:w-[300px] lg:w-[350px]"
+          className="w-full sm:w-[300px] lg:w-[350px] xl:w-[300px]"
           priority
         />
       </div>
