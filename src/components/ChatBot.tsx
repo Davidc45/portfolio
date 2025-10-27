@@ -46,9 +46,6 @@ export default function ChatBot() {
     }
   }
 
-  function stop() {
-    abortRef.current?.abort();
-  }
 
   useEffect(() => {
     if (!isOpen) return;
@@ -66,7 +63,7 @@ export default function ChatBot() {
                 <span className="text-white text-sm font-bold">🤖</span>
               </div>
               <div>
-                <h3 className="text-white font-semibold text-sm">David's Assistant</h3>
+                <h3 className="text-white font-semibold text-sm">David&apos;s Assistant</h3>
               </div>
             </div>
             <div className="flex items-center space-x-2">

@@ -32,9 +32,10 @@ export async function POST(req: NextRequest) {
 
     const content = completion.choices[0]?.message?.content || '';
     return NextResponse.json({ response: content });
-  } catch (e: any) {
+  } catch (e: unknown) {
+    const errorMessage = e instanceof Error ? e.message : 'Unknown error';
     return NextResponse.json(
-      { error: e?.message ?? 'Unknown error' },
+      { error: errorMessage },
       { status: 500 }
     );
   }
