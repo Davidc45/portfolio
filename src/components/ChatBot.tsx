@@ -33,13 +33,18 @@ export default function ChatBot() {
         signal: abortRef.current.signal,
       });
 
-      if (!res.ok) throw new Error('Network error');
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(`API Error: ${errorData.error || 'Unknown error'}`);
+      }
       const data = (await res.json()) as { response?: string; error?: string };
       const textResp = data.response || data.error || 'No response';
 
       setMessages(prev => [...prev, { role: 'assistant', content: textResp }]);
-    } catch {
-      setMessages((prev) => [...prev, { role: "assistant", content: "Sorry—something went wrong." }]);
+    } catch (error) {
+      console.error('ChatBot error:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Sorry—something went wrong.';
+      setMessages((prev) => [...prev, { role: "assistant", content: errorMessage }]);
     } finally {
       setIsLoading(false);
       abortRef.current = null;

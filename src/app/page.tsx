@@ -181,8 +181,8 @@ export default function Home() {
                 <p className="mt-2 sm:mt-4 text-2xl sm:text-3xl text-white">12+</p>
               </div>
               <div className="text-center lg:text-left">
-                <h1 className="text-sm sm:text-base lg:text-lg font-bold">Users Impacted:</h1>
-                <p className="mt-2 sm:mt-4 text-2xl sm:text-3xl text-white">2,000+</p>
+                <h1 className="text-sm sm:text-base lg:text-lg font-bold">Users Reached:</h1>
+                <p className="mt-2 sm:mt-4 text-2xl sm:text-3xl text-white">6,000+</p>
               </div>
             </div>
             </div>
