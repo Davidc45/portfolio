@@ -1,8 +1,26 @@
+'use client';
+
 import Image from "next/image";
 import ProjectCard from "@/components/projectCard";
 import TechnologyCarousel from "@/components/TechnologyCarousel";
 import ChatBot from "@/components/ChatBot";
+import { useState } from "react";
+
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Smooth scroll function
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+    // Close mobile menu after clicking
+    setIsMobileMenuOpen(false);
+  };
   return (
 
     <div className=" bg-black text-gray-400 font-aldrich p-3">  {/* Entire website container */}  
@@ -20,9 +38,24 @@ export default function Home() {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
-          <a href="#about" className="hover:text-white transition-colors text-sm lg:text-base">About</a>
-          <a href="#experience" className="hover:text-white transition-colors text-sm lg:text-base">Experience</a>
-          <a href="#projects" className="hover:text-white transition-colors text-sm lg:text-base">Projects</a>
+          <button 
+            onClick={() => scrollToSection('about')} 
+            className="hover:text-white transition-colors text-sm lg:text-base cursor-pointer"
+          >
+            About
+          </button>
+          <button 
+            onClick={() => scrollToSection('experience')} 
+            className="hover:text-white transition-colors text-sm lg:text-base cursor-pointer"
+          >
+            Experience
+          </button>
+          <button 
+            onClick={() => scrollToSection('projects')} 
+            className="hover:text-white transition-colors text-sm lg:text-base cursor-pointer"
+          >
+            Projects
+          </button>
           <a  href="/assets/DavidCalderonResume.pdf" download
            className="flex items-center space-x-2 border border-gray-600 rounded-lg px-3 py-2 hover:bg-gray-900 hover:border-gray-400 transition-all duration-300 text-sm lg:text-base">
             <span className="hidden sm:inline">Resume</span>
@@ -34,11 +67,54 @@ export default function Home() {
         </nav>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden p-2 text-gray-400 hover:text-white transition-colors">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+        <button 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="md:hidden p-2 text-gray-400 hover:text-white transition-colors"
+        >
+          {isMobileMenuOpen ? (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
         </button>
+
+        {/* Mobile Navigation Menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-md border-b border-gray-800 py-4 px-4">
+          <div className="flex flex-col space-y-4">
+            <button 
+              onClick={() => scrollToSection('about')} 
+              className="hover:text-white transition-colors text-sm cursor-pointer text-left"
+            >
+              About
+            </button>
+            <button 
+              onClick={() => scrollToSection('experience')} 
+              className="hover:text-white transition-colors text-sm cursor-pointer text-left"
+            >
+              Experience
+            </button>
+            <button 
+              onClick={() => scrollToSection('projects')} 
+              className="hover:text-white transition-colors text-sm cursor-pointer text-left"
+            >
+              Projects
+            </button>
+            <a  href="/assets/DavidCalderonResume.pdf" download
+             className="flex items-center space-x-2 border border-gray-600 rounded-lg px-3 py-2 w-26
+             transition-all duration-300 text-sm">
+              <span>Resume</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        )}
       </header>
 
       <main className="flex flex-col items-center justify-center min-h-[calc(100vh-60px)] px-4 sm:px-6 relative pt-20 sm:pt-24">  {/* Hero Section */}
@@ -58,13 +134,12 @@ export default function Home() {
         />
       </div>
        
-      <div className="border border-white rounded-full px-4 sm:px-6 py-2 sm:py-3 mt-32 sm:mb-8 hover:bg-white hover:text-black transition-all duration-300 animate-float text-sm sm:text-base">
+      <div className="border border-white rounded-full px-4 sm:px-6 py-2 sm:py-3 mt-32 lg:mt-10 sm:mb-8 hover:bg-white hover:text-black transition-all duration-300 animate-float text-sm sm:text-base">
   <a
     href="https://mail.google.com/mail/?view=cm&fs=1&to=davidcalderon4000@gmail.com&su=Hello%20from%20your%20portfolio&body=Hi%20David,%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect!"
     target="_blank"
     rel="noopener noreferrer"
-    className="cursor-pointer"
-  >
+    className="cursor-pointer">
     Hello, I&apos;m David 👋
   </a>
 </div>
@@ -81,7 +156,7 @@ export default function Home() {
           alt="David's Headshot" 
           width={900} 
           height={400} 
-          className="rounded-xl w-8/12 sm:w-6/12 h-auto"
+          className="rounded-xl w-8/12 sm:w-6/12 lg:w-11/12 xl:w-7/12 h-auto"
         />
         </div>
         <div className="flex flex-col items-center lg:items-start w-full lg:w-1/2 order-1 lg:order-2">
@@ -153,7 +228,7 @@ export default function Home() {
 
              {/* Item 1 */}
              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 py-8 sm:py-10 border-b border-gray-800">
-               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 pr-0 md:pr-8">
+               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 pr-0 ">
                  <div className="flex items-center gap-2 sm:gap-3">
                    <Image src="/assets/laptop.svg" alt="Freelance Work" width={28} height={24} className="rounded-xl bg-white sm:w-9 sm:h-8" />
                    <div>
@@ -161,7 +236,7 @@ export default function Home() {
                      <p className="text-xs sm:text-sm text-gray-400">Jun 2022 - Sep 2023</p>
                    </div>
                  </div>
-                 <span className="hidden md:block mt-2 h-2 w-2 rounded-full bg-white translate-x-1/2" />
+                 
                </div>
                <div className="pl-0 md:pl-8 text-gray-300 leading-relaxed text-sm sm:text-base">
                  <p>
@@ -173,7 +248,7 @@ export default function Home() {
 
              {/* Item 2 */}
              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 py-8 sm:py-10 border-b border-gray-800">
-               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 pr-0 md:pr-8">
+               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 pr-0 ">
                  <div className="flex items-center gap-2 sm:gap-3">
                    <Image src="/assets/altitud.svg" alt="Altitud Work" width={28} height={24} className="rounded-xl sm:w-9 sm:h-8" />
                    <div>
@@ -181,7 +256,7 @@ export default function Home() {
                      <p className="text-xs sm:text-sm text-gray-400">Sep 2023 - Jun 2024</p>
                    </div>
                  </div>
-                 <span className="hidden md:block mt-2 h-2 w-2 rounded-full bg-white translate-x-1/2" />
+            
                </div>
                <div className="pl-0 md:pl-8 text-gray-300 leading-relaxed text-sm sm:text-base">
                  <p>
@@ -194,7 +269,7 @@ export default function Home() {
               
               {/* Item 3 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10 py-8 sm:py-10 border-b border-gray-800">
-               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 pr-0 md:pr-8">
+               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 pr-0">
                  <div className="flex items-center gap-2 sm:gap-3">
                    <Image src="/project/usda.svg" alt="USDA Fellowship" width={32} height={24} className="rounded-xl sm:w-10 sm:h-8" />
                    <div>
@@ -202,7 +277,7 @@ export default function Home() {
                      <p className="text-xs sm:text-sm text-gray-400">Jun 2024 - Aug 2024</p>
                    </div>
                  </div>
-                 <span className="hidden md:block mt-2 h-2 w-2 rounded-full bg-white translate-x-1/2" />
+              
                </div>
                <div className="pl-0 md:pl-8 text-gray-300 leading-relaxed text-sm sm:text-base">
                  <p>
@@ -222,7 +297,7 @@ export default function Home() {
                      <p className="text-xs sm:text-sm text-gray-400">Sep 2024 - May 2025</p>
                    </div>
                  </div>
-                 <span className="hidden md:block mt-2 h-2 w-2 rounded-full bg-white translate-x-1/2" />
+                 
                </div>
                <div className="pl-0 md:pl-8 text-gray-300 leading-relaxed text-sm sm:text-base">
                  <p>
@@ -239,7 +314,7 @@ export default function Home() {
        
        <div id="projects" className="flex flex-col items-center mt-16 w-full min-h-screen px-4 sm:px-8 ">
          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 text-center">My Featured <span className="text-white">Projects</span> </h2>
-         <div className="w-9/12 sm:w-10/12  max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
+         <div className="w-9/12 sm:w-10/12 lg:w-9/12 xl:w-7/12 max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
 
       <ProjectCard
         project={{ title: "Steph's Puppies", description: "A front-end project helping adorable puppies find their new homes.", imageUrl: "/project/steph.jpg",
