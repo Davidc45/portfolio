@@ -119,22 +119,22 @@ export default function Home() {
 
       <main className="flex flex-col items-center justify-center min-h-[calc(100vh-60px)] px-4 sm:px-6 relative pt-20 sm:pt-24">  {/* Hero Section */}
       
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center mb-6 sm:mb-8 w-full sm:w-11/12 md:w-10/12 lg:w-8/12 xl:w-6/12 leading-tight px-2">  {/* Main Headline */}
-        <span className="text-white "> Software engineer </span> developing <span className="text-white ">clean</span> & <span className="text-white ">modern</span> web applications.
+        <h1 className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-bold text-center mb-6 sm:mb-8 w-full sm:w-11/12 md:w-10/12 xl:w-7/12 leading-tight px-2">  {/* Main Headline */}
+        <span className="text-white  "> Software engineer </span> developing <span className="text-white ">clean</span> & <span className="text-white ">modern</span> web applications.
         </h1>
 
-      <div className="w-full max-w-4xl px-4">
+      <div className=" max-w-4xl px-4">
         <Image 
           src="/assets/roomrender.png" 
           alt="Room Render" 
-          width={1100} 
+          width={300} 
           height={800}
-          className="w-full h-auto"
+          className="w-full sm:w-[300px] lg:w-[350px]"
           priority
         />
       </div>
        
-      <div className="border border-white rounded-full px-4 sm:px-6 py-2 sm:py-3 mt-32 lg:mt-10 sm:mb-8 hover:bg-white hover:text-black transition-all duration-300 animate-float text-sm sm:text-base">
+      <div className="border border-white rounded-full px-4 sm:px-6 py-2 sm:py-3 mt-20 sm:mt-16 lg:mt-20 sm:mb-8 hover:bg-white hover:text-black transition-all duration-300 animate-float text-sm sm:text-base">
   <a
     href="https://mail.google.com/mail/?view=cm&fs=1&to=davidcalderon4000@gmail.com&su=Hello%20from%20your%20portfolio&body=Hi%20David,%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect!"
     target="_blank"
