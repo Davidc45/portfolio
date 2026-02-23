@@ -169,8 +169,8 @@ export default function Home() {
             </p>
             <div className="grid grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-8 sm:gap-y-12 mt-8 sm:mt-10 w-full">
               <div className="text-center lg:text-left">
-                <h1 className="text-sm sm:text-base lg:text-lg font-bold">Projects Completed:</h1>
-                <p className="mt-2 sm:mt-4 text-2xl sm:text-3xl text-white">5+</p>
+                <h1 className="text-sm sm:text-base lg:text-lg font-bold">Web Apps Completed:</h1>
+                <p className="mt-2 sm:mt-4 text-2xl sm:text-3xl text-white">6+</p>
               </div>
               <div className="text-center lg:text-left">
                 <h1 className="text-sm sm:text-base lg:text-lg font-bold">Years of Experience:</h1>
