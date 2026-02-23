@@ -174,7 +174,7 @@ export default function Home() {
               </div>
               <div className="text-center lg:text-left">
                 <h1 className="text-sm sm:text-base lg:text-lg font-bold">Years of Experience:</h1>
-                <p className="mt-2 sm:mt-4 text-2xl sm:text-3xl text-white">2+</p>
+                <p className="mt-2 sm:mt-4 text-2xl sm:text-3xl text-white">3+</p>
               </div>
               <div className="text-center lg:text-left">
                 <h1 className="text-sm sm:text-base lg:text-lg font-bold">Technologies Mastered:</h1>
