@@ -5,6 +5,7 @@ type Msg = { role: "user" | "assistant"; content: string };
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showHalo, setShowHalo] = useState(false);
   const [messages, setMessages] = useState<Msg[]>([
     { role: "assistant", content: "Hi! I’m David's portfolio assistant. Ask me anything 👋" },
   ]);
@@ -56,6 +57,27 @@ export default function ChatBot() {
     if (!isOpen) return;
     document.getElementById("chat-bottom")?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isOpen]);
+
+  // Slow, occasional single halo pulse for the closed chat button
+  useEffect(() => {
+    if (isOpen) {
+      setShowHalo(false);
+      return;
+    }
+
+    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+
+    const intervalId = setInterval(() => {
+      setShowHalo(true);
+      timeoutId = setTimeout(() => setShowHalo(false), 900);
+    }, 10000);
+
+    return () => {
+      clearInterval(intervalId);
+      if (timeoutId) clearTimeout(timeoutId);
+      setShowHalo(false);
+    };
+  }, [isOpen]);
 
   return (
     <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
@@ -142,21 +164,29 @@ export default function ChatBot() {
       )}
 
       {/* Chat Toggle Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="bg-blue-600 hover:bg-blue-700 text-white p-3 sm:p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer"
-        title={isOpen ? 'Close chat' : 'Open chat'}
-      >
-        {isOpen ? (
-          <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        ) : (
-          <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-          </svg>
+      <div className="relative">
+        {!isOpen && showHalo && (
+          <span className="absolute inset-0 rounded-full bg-white opacity-40 animate-[ping_1s_ease-out_1] pointer-events-none" />
         )}
-      </button>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="relative flex items-center gap-2 bg-white hover:bg-black text-black hover:text-white px-4 sm:px-5 py-3 sm:py-3.5 rounded-full shadow-2xl border border-blue-300/60 transition-all duration-300 hover:scale-110 cursor-pointer"
+          title={isOpen ? 'Close chat' : 'Open chat'}
+        >
+          {isOpen ? (
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+          )}
+          <span className="hidden sm:inline text-xs sm:text-sm font-semibold tracking-wide">
+            Chat with David
+          </span>
+        </button>
+      </div>
     </div>
   );
 }

@@ -56,7 +56,7 @@ export default function Home() {
           >
             Projects
           </button>
-          <a  href="/assets/David_Calderon_Resume.pdf" download
+          <a  href="/assets/DavidCalderon_Resume.pdf" download
            className="flex items-center space-x-2 border border-gray-600 rounded-lg px-3 py-2 hover:bg-gray-900 hover:border-gray-400 transition-all duration-300 text-sm lg:text-base">
             <span className="hidden sm:inline">Resume</span>
             <span className="sm:hidden">CV</span>
@@ -232,7 +232,7 @@ export default function Home() {
                  <div className="flex items-center gap-2 sm:gap-3">
                    <Image src="/assets/laptop.svg" alt="Freelance Work" width={28} height={24} className="rounded-xl bg-white sm:w-9 sm:h-8" />
                    <div>
-                     <h3 className="text-base sm:text-lg font-semibold text-white">Freelance - Web Development</h3>
+                     <h3 className="text-base sm:text-lg font-semibold text-white">Freelance - Web Developer</h3>
                      <p className="text-xs sm:text-sm text-gray-400">Jun 2022 - Sep 2023</p>
                    </div>
                  </div>
@@ -240,8 +240,9 @@ export default function Home() {
                </div>
                <div className="pl-0 md:pl-8 text-gray-300 leading-relaxed text-sm sm:text-base">
                  <p>
-                   Built responsive websites for local clients, emphasizing clean UI/UX and optimized performance. Managed full scale projects from client 
-                   visions to deployment, improving communication and delivery speed.
+                 I built responsive websites for clients, helping turn ideas into fully deployed products.
+                  I focused on clean UI/UX, fast load performance, and mobile-first design. By optimizing assets, improving layout structure, 
+                  and refining user flows, I helped increase engagement and improve delivery speed across multiple client projects.
                  </p>
                </div>
              </div>
@@ -253,16 +254,17 @@ export default function Home() {
                    <Image src="/assets/altitud.svg" alt="Altitud Work" width={28} height={24} className="rounded-xl sm:w-9 sm:h-8" />
                    <div>
                      <h3 className="text-base sm:text-lg font-semibold text-white">Altitud - Software Engineer</h3>
-                     <p className="text-xs sm:text-sm text-gray-400">Sep 2023 - Jun 2024</p>
+                     <p className="text-xs sm:text-sm text-gray-400">Sep 2023 - Present</p>
                    </div>
                  </div>
             
                </div>
                <div className="pl-0 md:pl-8 text-gray-300 leading-relaxed text-sm sm:text-base">
                  <p>
-                   A community-driven startup providing me with the privilege to offer service-free web services to local businesses.
-                   I led a team of developers through Agile sprints and built scalable UI systems with reusable components where I also initially offered
-                   back-end app functionalities.
+                 At Altitud, I helped local businesses grow their online presence by building scalable React and Next.js applications. 
+                 I introduced reusable UI components that reduced feature delivery time and improved consistency across projects.
+                  Through SEO improvements, accessibility fixes, and performance optimization, we helped clients attract over 1,000 new users and 
+                  improve conversion rates.
                  </p>
                </div>
              </div>
@@ -273,7 +275,7 @@ export default function Home() {
                  <div className="flex items-center gap-2 sm:gap-3">
                    <Image src="/project/usda.svg" alt="USDA Fellowship" width={32} height={24} className="rounded-xl sm:w-10 sm:h-8" />
                    <div>
-                     <h3 className="text-base sm:text-lg font-semibold text-white">Digital Agricultural Fellowship - Data Analyst</h3>
+                     <h3 className="text-base sm:text-lg font-semibold text-white">United States Department of Agriculture - Software Developer</h3>
                      <p className="text-xs sm:text-sm text-gray-400">Jun 2024 - Aug 2024</p>
                    </div>
                  </div>
@@ -281,8 +283,10 @@ export default function Home() {
                </div>
                <div className="pl-0 md:pl-8 text-gray-300 leading-relaxed text-sm sm:text-base">
                  <p>
-                  Processed and visualized 30K+ satellite data entries to analyze crop growth. Built Python dashboards that delivered crucial insights for farmers
-                  and presented findings at the 2024 UCR MSRIP Symposium under mentorship of a senior scientist.
+                 During my internship, I worked with large agricultural datasets (30K+ fields) to help researchers analyze crop growth more efficiently. 
+                 I built interactive dashboards that reduced manual data scanning and improved query speed by about 40%. By restructuring how information 
+                 was surfaced and enabling multi-field filtering, I helped double seasonal dataset analysis throughput. The dashboard was later used in a
+                  UCR MSRIP conference presentation.
                  </p>
                </div>
              </div>
@@ -294,15 +298,16 @@ export default function Home() {
                    <Image src="/assets/logo.svg" alt="Green Portfolio" width={32} height={24} className="rounded-xl sm:w-10 sm:h-8" />
                    <div>
                      <h3 className="text-base sm:text-lg font-semibold text-white">Green Portfolio - Web Developer</h3>
-                     <p className="text-xs sm:text-sm text-gray-400">Sep 2024 - May 2025</p>
+                     <p className="text-xs sm:text-sm text-gray-400">April 2024 - September 2024</p>
                    </div>
                  </div>
                  
                </div>
                <div className="pl-0 md:pl-8 text-gray-300 leading-relaxed text-sm sm:text-base">
                  <p>
-                  Developed the company&apos;s main site using front-end technologies and collaborated with a team to deliver a seamless experience for 2,000+ users.
-                  I gained experience in web optimization such as reducing bundle size and improving load times for bigger client bases. 
+                 I helped architect a production Next.js platform serving over 2,000+ users via Contract Work at Green Project Portfolio. I focused on reusable
+                  components, responsive design, and performance optimization. We were able to deliver a 
+                  a production-ready platform that was used by students to access business content.
                  </p>
                </div>
              </div>
@@ -371,7 +376,7 @@ export default function Home() {
       { name: "Docker", color: "#1D63ED", logo: "/technology/docker.png", textContrast: "#ffffff"}
 
     ],
-    liveUrl: "https://altitud.io",
+    liveUrl: "https://altitud.tech",
     panelHeight: "h-7/12"
   }} className="w-full"
 />
